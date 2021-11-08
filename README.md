@@ -1,1 +1,1 @@
-# cd-w9d2-shoppingcart-controlled
+# w9d2-shoppingcart-controlled
