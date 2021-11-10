@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './styles.css';
 import AllTheThings from './Components/AllTheThings';
 import MyShoppingCart from './Components/MyShoppingCart';
-import Form from './Components/Form'
+import Form from './Components/Form';
 import productsArr from './products';
 
 export default function App() {
@@ -17,19 +17,15 @@ export default function App() {
     const cartArr = cart.filter( (d,i) => i !== index )
     setCart(cartArr)
   };
-
-  const newItem = (name, price, description) => {
-    setProducts([{
-      name: name,
-      price: price,
-      description: description
-    }, ...products])
+  
+  const handleSubmit = item => {
+    setProducts([item, ...products])
   };
 
   return (
     <div className="App">
       <h1>Big Time Shopping</h1>
-      <Form onSubmit={newItem}/>
+      <Form handleSubmit={handleSubmit}/>
       <div className="shoplist">
       <AllTheThings products={products} handleClick={addToCart} />
       <MyShoppingCart cart={cart} handleClick={removeFromCart} />
